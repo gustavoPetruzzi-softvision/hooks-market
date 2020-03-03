@@ -12,13 +12,16 @@ const App = () =>{
     const [cart, setCart] = useState([]);
 
     const addToCart = (product, amount) =>{
+        
+        setCart(prevCart => [...prevCart, {amount: amount, ...product}]);
+        /*
         let newCart = [...cart];
         product.amount = amount;
         // Ver como organizar los productos;
         newCart.push(product);
         setCart(newCart);
         console.log(cart);
-        
+        */
         
     }
 
@@ -30,7 +33,7 @@ const App = () =>{
     return(
         <div className={classes.App}>
             <Navigation cart={cart} />
-            <ProductList addToCart={(product, amount) =>addToCart(product, amount)} />
+            <ProductList addToCart={addToCart} />
             
         </div>
     )

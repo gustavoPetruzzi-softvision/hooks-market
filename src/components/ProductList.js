@@ -17,7 +17,7 @@ const ProductList = (props) =>{
 
 	const addProduct = (id, amount) => {
 
-		const productAdded = products.filter(product => product.id == id);
+		const productAdded = products.filter(product => product.id === id);
 		
 		props.addToCart(productAdded[0], amount);
 	}
