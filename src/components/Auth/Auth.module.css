@@ -1,0 +1,21 @@
+.authContainer{
+    background-color: white;
+    width: 80%;
+    height: 80%;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: column;
+    align-items: center;
+
+}
+
+.inputContainer {
+    align-self: flex-start;
+    width: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+}
+.inputContainer input{
+    width: 96%;
+}

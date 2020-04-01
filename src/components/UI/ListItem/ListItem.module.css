@@ -1,0 +1,29 @@
+.listItem{
+    display: flex;
+    justify-content: space-between;
+    background-color: white;
+    margin-bottom: 5px;
+    align-items: center;
+    padding: 0 10px;
+}
+
+
+.listItem__img{
+    display: flex;
+    align-items: center;
+    min-width: 90px;
+}
+
+.listItem p{
+    margin: 0;
+}
+
+.listItem__img p{
+    margin: 0 10px;
+    display: inline-block;
+}
+
+.listItem__img img{
+    width:100%;
+    max-width: 50px;
+}

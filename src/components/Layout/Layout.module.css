@@ -1,0 +1,13 @@
+.layout{
+    display: flex;
+    flex-wrap: wrap;
+    height: calc(100% - 50px);
+}
+
+
+.auth{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}

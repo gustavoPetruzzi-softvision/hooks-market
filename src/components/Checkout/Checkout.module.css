@@ -1,0 +1,42 @@
+.cartContainer{
+    margin: 3%;
+    background-color: #F2F2F2;
+    width: 100%;
+    height: calc(100% - 50px);
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 10% 10% 10% 63%;
+    grid-template-areas: "title" "info" "buy" "list";
+}
+
+.title{
+    grid-area: title;
+    text-align: center;
+}
+.buy{
+    grid-area: buy;
+    text-align: center;
+    margin: auto 0;
+}
+
+.infoContainer{
+    grid-area: info;
+    margin: 0% 10%;
+    display: grid;
+    grid-template-columns: auto auto;
+    align-items: stretch;
+    background-color: white;
+}
+.infoContainer div{
+    margin: auto 10%;
+}
+
+.infoContainer .item{
+    text-align: right;
+}
+
+.list{
+    grid-area: list;
+    margin: 0 10%;
+    overflow:auto;
+}

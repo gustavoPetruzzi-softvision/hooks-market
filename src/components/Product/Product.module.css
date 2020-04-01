@@ -23,17 +23,8 @@
     width: 100%;
 }
 
-.ButtonItem{
-    background: transparent;
-    color: #36a8dd;
-    padding: 5px;
-    border: 2px solid #36a8dd;
-}
-
-.ButtonItem:hover{
-    cursor: pointer;
-    color:white;
-    background: #36a8dd;
+.buttonItem{
+    margin-bottom: 10px;
 }
 
 @media (min-width: 600px){

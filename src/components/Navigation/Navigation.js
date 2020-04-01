@@ -1,26 +1,37 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import classes from './Navigation.module.css';
-import logo from '../../assets/logo.png';
-import cart from '../../assets/shopping-cart.png';
+import cartLogo from '../../assets/shopping-cart.png';
+import { Link, useHistory } from 'react-router-dom';
+import { CartContext } from '../../context/cart-context';
 
-const Navigation = (props) =>{    
+
+const Navigation = (props) =>{
+    let history = useHistory();
+
+    const cartContext = useContext(CartContext);
+    const {cart} = cartContext;
+
+    const navigateTo = (route) =>{
+        history.push(route);
+    }
     return(
         <header className={classes.Header}>
-            <div>
-                <img src={logo} alt="Ezshop" />
-                <p style={{marginLeft: '10px'}} className={classes.Item}> Ezshop</p>
+            <div onClick={() => navigateTo("/")}>
+                <img src={cartLogo} alt="Eshop"  />
+                <p style={{marginLeft: '10px'}} className={classes.Item}> Eshop</p>
             </div>
 
             <nav className={classes.Navigation}>
-                <ul className={classes.Items}>
+                <ul className={classes.Items} onClick={() => navigateTo("/checkout")}>
                     <li className={classes.Item}>
-                       <p> $ {(props.cart.reduce((acc,cur) => acc + cur.price, 0).toFixed(2))} </p>
+                       <p> $ {(cart.reduce((acc,cur) => acc + (cur.price * cur.amount), 0).toFixed(2))} </p>
                     </li>
                     <li className={classes.Cart}>
+                        <Link to="/checkout" />
                         <div className={classes.CartObject}>
-                           <p> {props.cart.length} </p>
+                           <p> {cart.reduce((acc,cur) => acc + cur.amount, 0)} </p>
                         </div>
-                        <img src={cart} alt="cart" />
+                        <img src={cartLogo} alt="cart" />
                     </li>
                 </ul>
             </nav>

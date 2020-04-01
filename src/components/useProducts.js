@@ -6,19 +6,12 @@ const useProducts = (page) =>{
     const [products, setProducts] = useState([]);
     
     const getProducts = useCallback(async () =>{
-        let response;
-        if(page === 1){
-            response = await api.get('/products');
-            setProducts(response.data.products);
+        const response = await api.get(`products/${page}.json`);
+        let responseArray = [];
+        for (const prop in response.data){
+            responseArray.push({id: prop, ...response.data[prop]});
         }
-        else{
-            response = await api.get('/products',{
-				params:{
-					page: page
-				}
-			})
-			setProducts(prevProducts => prevProducts.concat(response.data.products));
-        }
+        setProducts(prevProducts => prevProducts.concat(responseArray));
         
     },[page]);
 
